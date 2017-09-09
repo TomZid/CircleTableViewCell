@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AB6AA871F63D92400A592CA /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AB6AA861F63D92400A592CA /* TableViewCell.xib */; };
 		F7CEAAF41F6299F900D51B88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CEAAF31F6299F900D51B88 /* main.m */; };
 		F7CEAAF71F6299F900D51B88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CEAAF61F6299F900D51B88 /* AppDelegate.m */; };
 		F7CEAAFA1F6299F900D51B88 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7CEAAF91F6299F900D51B88 /* ViewController.m */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AB6AA861F63D92400A592CA /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		F7CEAAEF1F6299F900D51B88 /* CircleTableViewCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CircleTableViewCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7CEAAF31F6299F900D51B88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F7CEAAF51F6299F900D51B88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				F7CEAB0A1F629A4100D51B88 /* TableViewController.m */,
 				F7CEAB0C1F629A9100D51B88 /* TableViewCell.h */,
 				F7CEAB0D1F629A9100D51B88 /* TableViewCell.m */,
+				0AB6AA861F63D92400A592CA /* TableViewCell.xib */,
 				F7CEAB0F1F629B2100D51B88 /* CircleView.h */,
 				F7CEAB101F629B2100D51B88 /* CircleView.m */,
 				F7CEAAFB1F6299F900D51B88 /* Main.storyboard */,
@@ -120,7 +123,7 @@
 		F7CEAAE71F6299F900D51B88 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = tom;
 				TargetAttributes = {
 					F7CEAAEE1F6299F900D51B88 = {
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7CEAB021F6299F900D51B88 /* LaunchScreen.storyboard in Resources */,
+				0AB6AA871F63D92400A592CA /* TableViewCell.xib in Resources */,
 				F7CEAAFF1F6299F900D51B88 /* Assets.xcassets in Resources */,
 				F7CEAAFD1F6299F900D51B88 /* Main.storyboard in Resources */,
 			);
@@ -329,6 +333,7 @@
 				F7CEAB081F6299F900D51B88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

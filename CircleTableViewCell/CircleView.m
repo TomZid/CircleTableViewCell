@@ -9,15 +9,34 @@
 #import "CircleView.h"
 
 @implementation CircleViewConfigure
+- (instancetype)init {
+    return [self initDefaultConfigureWithcircleStrokeColor:[UIColor redColor]
+                                    circleLineWidth:5
+                                      circleLineCap:K_LINECAP_Round
+                                     circleLineJoin:K_LINEJOIN_Round];
+}
 
-- (instancetype)initDefaultConfigure {
-    if (self = [super init]) {
-        self.circleStrokeColor          = [UIColor grayColor];
-        self.circleLineWidth            = 40;
-        self.circleLineCap              = K_LINECAP_Round;
-        self.circleLineJoin             = K_LINEJOIN_Round;
+- (instancetype)initDefaultConfigureWithcircleStrokeColor:(UIColor*)strokeColor
+                                          circleLineWidth:(CGFloat)lineWithd
+                                            circleLineCap:(LINECAP)lineCap
+                                           circleLineJoin:(LINEJOIN)lineJoin {
+    self = [super init];
+    if (nil == self) {
+        return nil;
     }
+    self.circleStrokeColor  = strokeColor;
+    self.circleLineWidth    = lineWithd;
+    self.circleLineCap      = lineCap;
+    self.circleLineJoin     = lineJoin;
     return self;
+}
+
++ (instancetype)defaultConfigure {
+    CircleViewConfigure *configure = [[self alloc] initDefaultConfigureWithcircleStrokeColor:[UIColor redColor]
+                                                                             circleLineWidth:5
+                                                                               circleLineCap:K_LINECAP_Round
+                                                                              circleLineJoin:K_LINEJOIN_Round];
+    return configure;
 }
 
 @end
@@ -25,6 +44,11 @@
 @implementation CircleView
 {
     CAShapeLayer            *_circle;
+}
+- (void)setConfigure:(CircleViewConfigure *)configure {
+    NSParameterAssert(configure);
+    _configure = configure;
+    [self circle];
 }
 
 -(instancetype)initWithFrame:(CGRect)frame {
@@ -42,27 +66,38 @@
 }
 
 - (void)circle {
-    _circle = [CAShapeLayer new];
     if (nil == _configure) {
-        _configure = [[CircleViewConfigure alloc] initDefaultConfigure];
+        _configure          = [CircleViewConfigure defaultConfigure];
+        _circle = ({
+            CAShapeLayer *layer = [CAShapeLayer layer];
+            CGFloat radius      = (CGRectGetWidth(self.bounds) - _configure.circleLineWidth) / 2;
+            CGRect rect         = CGRectMake(_configure.circleLineWidth / 2, _configure.circleLineWidth / 2, radius * 2, radius * 2);
+            layer.path = [UIBezierPath bezierPathWithOvalInRect:rect].CGPath;
+            layer.strokeEnd   = 0.5;
+            layer.fillColor   = nil;
+            layer;
+        });
+        [self.layer addSublayer:_circle];
     }
-    _circle.lineWidth =  _configure.circleLineWidth;
-    _circle.lineCap = [self LineCap:_configure.circleLineCap];
-    _circle.lineJoin = [self LineJoin:_configure.circleLineJoin];
+    _circle.strokeColor     = _configure.circleStrokeColor.CGColor;
+    _circle.lineWidth       = _configure.circleLineWidth;
+    _circle.lineCap         = [self LineCap:_configure.circleLineCap];
+    _circle.lineJoin        = [self LineJoin:_configure.circleLineJoin];
 }
 
 - (void)setFraction:(CGFloat)fraction {
-
+    _circle.strokeEnd       = fraction;
+    
 }
 
 - (void)setCornerRadius:(NSInteger)cornerRadius {
-    self.layer.cornerRadius = cornerRadius;
-    self.layer.masksToBounds = cornerRadius > 0;
+    self.layer.cornerRadius     = cornerRadius;
+    self.layer.masksToBounds    = cornerRadius > 0;
     [self layoutIfNeeded];
 }
 
-- (void)setBackgroundColor:(UIColor *)backgroundColor {
-    self.backgroundColor = backgroundColor;
+- (void)setBackgroundColor_:(UIColor *)backgroundColor_ {
+    self.backgroundColor = backgroundColor_;
 }
 
 - (NSString*)LineCap:(LINECAP)lineCap {

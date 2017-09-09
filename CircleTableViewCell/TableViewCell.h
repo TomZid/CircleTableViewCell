@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+static NSString *tableViewCellIdentifier = @"cellIdentifier";
 @interface TableViewCell : UITableViewCell
-
+@property (nonatomic, assign) CGFloat fraction;
 @end

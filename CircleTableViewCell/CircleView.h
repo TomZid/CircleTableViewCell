@@ -25,14 +25,18 @@ typedef NS_ENUM(NSInteger, LINEJOIN) {
 @property (nonatomic, assign) CGFloat       circleLineWidth;
 @property (nonatomic, assign) LINECAP       circleLineCap;
 @property (nonatomic, assign) LINEJOIN      circleLineJoin;
-- (instancetype)initDefaultConfigure;
++ (instancetype)defaultConfigure;
+- (instancetype)initDefaultConfigureWithcircleStrokeColor:(UIColor*)strokeColor
+                                          circleLineWidth:(CGFloat)lineWithd
+                                            circleLineCap:(LINECAP)lineCap
+                                           circleLineJoin:(LINEJOIN)lineJoin NS_DESIGNATED_INITIALIZER;
 @end
 
 IB_DESIGNABLE
 @interface CircleView : UIView
 @property (nonatomic, assign) IBInspectable NSInteger cornerRadius;
-@property (nonatomic, strong) IBInspectable UIColor *backgroundColor;
+@property (nonatomic, strong) IBInspectable UIColor *backgroundColor_;
 
-@property (nonatomic, assign) IBInspectable CGFloat fraction;
+@property (nonatomic, assign) CGFloat fraction;   //0~1
 @property (nonatomic, strong) CircleViewConfigure     *configure;
 @end
