@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TableViewCell"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -25,22 +25,32 @@
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor_">
-                            <color key="value" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="value" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                             <integer key="value" value="25"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2sD-CO-Jyh">
+                    <rect key="frame" x="162" y="333.5" width="50" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="2sD-CO-Jyh" firstAttribute="width" secondItem="YVE-e4-Jfx" secondAttribute="width" id="F4S-Xy-ySn"/>
                 <constraint firstItem="YVE-e4-Jfx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OuH-Ml-mLg"/>
+                <constraint firstItem="2sD-CO-Jyh" firstAttribute="centerX" secondItem="YVE-e4-Jfx" secondAttribute="centerX" id="g6v-TT-btm"/>
                 <constraint firstItem="YVE-e4-Jfx" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="qLR-dX-rjR"/>
+                <constraint firstItem="2sD-CO-Jyh" firstAttribute="centerY" secondItem="YVE-e4-Jfx" secondAttribute="centerY" id="xoO-wR-abG"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="circleView" destination="YVE-e4-Jfx" id="yH8-Lo-jfn"/>
+                <outlet property="circleView" destination="YVE-e4-Jfx" id="iks-Tn-3Bw"/>
+                <outlet property="fractionLabel" destination="2sD-CO-Jyh" id="WXJ-ze-4Af"/>
             </connections>
         </view>
     </objects>
