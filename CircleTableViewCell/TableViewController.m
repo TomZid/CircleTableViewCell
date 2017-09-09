@@ -54,7 +54,7 @@
                            @"fraction" : @(fraction),
                            };
     [self performSelector:@selector(feedWithCell:fraction:) withObject:feed afterDelay:0 inModes:@[NSDefaultRunLoopMode]];
-//    cell.fraction = fraction;
+    cell.fraction = 0;
     return cell;
 }
 
